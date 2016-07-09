@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+			/*background:url(./image/background.jpg);*/
+		}
+		#body{
+			width: 100%;
+			height: 100%;
+			/*border: 1px solid Purple;*/
+			/*text-align:center;*/
+			/*margin: 0 auto;*/
+			background:url(./images/time.jpg);
+		}
+		#header{
+			width: 100%;
+			height: 60px;
+			background-color: Thistle1;
+
+		}
+		#header img{
+			margin-left: 100px;
+		}
+		#content{
+			width: 500px;
+			height: 542px;
+			margin: 0 auto;
+			/*border: 1px solid Purple;*/
+			/*background: url(./image/background.jpg);*/
+		}
+		#content #image{
+			width: 400px;
+			height: 200px;
+			/*border: 1px solid red;*/
+			/*float: none;*/
+			/*position: absolute;*/
+			margin: 20px auto;
+			/*text-align: center;*/
+		}
+		#image #word{
+			display: block;
+			width: 300px;
+			height: 100px;
+			/*border: 1px solid red;*/
+			font-size: 100px;
+			font-family:"华文彩云";
+			color: white;
+			margin:0 auto;
+		}
+		#image #words{
+			display: block;
+			width: 300px;
+			height: 50px;
+			/*border: 1px solid blue;*/
+			font-size: 50px;
+			font-family:"华文彩云";
+			color: white;
+			margin:10px auto;
+			margin-left: 65px;
+		}
+		#form{
+			float: none;
+			display: block;
+			width: 500px;
+			height: 300px;
+			/*border: 1px solid blue;*/
+			margin:  20px auto;
+			position: relative;
+			left: 60px;
+			line-height: 10px;
+			font-weight: bold;
+			
+			/*padding: 5px;*/
+		}
+		#form input{
+			border: none;
+		}
+		label{
+			font-size: 20px;
+			font-family:"微软雅黑";
+		}
+		#form #usrename{
+			/*display: block;*/
+			/*float: left;*/
+			width: 250px;
+			height: 40px;
+			margin: 15px;
+			
+			/*margin: 20px auto;*/
+		}
+		#form #studentnum{
+			/*display: block;*/
+			/*float: left;*/
+			width: 250px;
+			height: 40px;
+			margin: 15px;
+		}
+		#form #password{
+			width: 250px;
+			height: 40px;
+			margin: 15px;
+		}
+		#form #conten{
+			font-size: 15px;
+			font-family: "微软雅黑";
+			color: Purple;
+			float: right;
+			position: relative;
+			margin-right: 60px;	
+			/*top: -45px;*/
+			top: 25px;
+			display: none;
+		}
+		#conten2{
+			font-size: 15px;
+			font-family: "微软雅黑";
+			color: Purple;
+			float: right;
+			position: relative;
+			margin-right: 120px;	
+			/*top: -45px;*/
+			top: 25px;
+			display: none;
+		}
+		#conten3{
+			font-size: 15px;
+			font-family: "微软雅黑";
+			color: Purple;
+			float: right;
+			position: relative;
+			margin-right: 120px;	
+			/*top: -45px;*/
+			top: 25px;
+			display: none;
+		}
+		 #login{
+			width: 80px;
+			height: 40px;
+			float: right;
+			background: Cyan;
+			font-size: 20px;
+			font-weight: bold;
+			border-radius: 20%; 
+		}
+		#foot{
+			width: 100%;
+			height: 30px;
+			background-color:Lavender;
+			color: #000;
+			text-align: center;
+			font-family: "微软雅黑";
+			font-size: 20px;
+		}
+	</style>
+	<script type="text/javascript" src="./js/register.js" ></script>
+</head>
+<body>
+	<div id="body">
+		<div id="header">
+			<img src="./images/xingkong.png" alt="" width="150px"; height="60px">
+		</div>
+		<div id="content">
+			<div id="image">
+				<div id="word">星购书</div>
+				<div id="words">Xing Helper </div>
+				<!-- <img src="./image/one.png" alt=""> -->
+			</div>
+			<div id="form"> 
+				<form action="register.php" method="POST">
+					<label for="username">姓名：</label><br>
+					<input type="text" id="usrename" name="username" placeholder="请输入姓名">
+					<p id="conten">请输入姓名!</p>	
+					<br><label for="studentnum">学号：</label><br>
+					<input type="text" id="studentnum" placeholder="请输入学号" name="studentnum">
+					<p id="conten2">请输入学号</p>
+					<br><label for="username">请输入密码:</label><br>
+					<input type="password" id="password" placeholder="******" name="password">
+					<p id="conten3">请输入密码</p>
+					<!-- <br><input type="checkbox" id="remember" >记住密码
+					<a href="">注册</a> -->
+					<br>
+					<input type="submit" value="提交" id="login">
+				</form>
+			</div>
+		</div>
+		<footer>
+			<div id= "foot">@星空技术研发中心创作</div>
+		</footer>
+	</div>
+</body>
+</html>

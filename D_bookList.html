@@ -3,10 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>书单详情</title>
+	<link rel="stylesheet" type="text/css" href="css/D_bookList.css" />
 </head>
 <body>
 	<header>
 		<a href="www.xingkong.us"><div id="logo"></div></a>
 	</header>
+	<div id="container">
+		<div id="title">
+			<div id="title_left">书单1</div>
+			<div id="title_right">
+				<form method="post" action="">
+					<span>姓名：</span>
+					<input type="text" name="usarname" id="stuName" value="请您输入姓名" onfocus="if(this.value==this.defaultValue){this.value=''}" onblur="if(this.value==''){this.value=this.defaultValue}" />
+					<span>学号：</span>
+					<input type="text" name="stunum" id="stuNum" value="请您输入学号" onfocus="if(this.value==this.defaultValue){this.value=''}" onblur="if(this.value==''){this.value=this.defaultValue}" />
+				</form>
+			</div>
+		</div>
+		<form method="post" action="" id="bookShelf">
+			<div id="type">
+				<ul>
+					<li>书名</li>
+					<li>价格</li>
+					<li>折后价</li>
+					<li>是否购买</li>
+				</ul>
+			</div>
+			<div id="book1" class="bookList">
+				<ul>
+					<li>大学生心理健康</li>
+					<li>13.88</li>
+					<li>10.55</li>
+					<li><input type="checkbox" name="checkbox1" id="check1" /></li>
+				</ul>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
