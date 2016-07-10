@@ -5,17 +5,25 @@
 	<title>管理员页面</title>
 	<style>
 		#header,img,
-		#content,#button,#add,table,#send,td,tr,#booklist,a,body{
+		#content,#button,#add,table,#send,ul,li,#booklist,a,body{
 			padding: 0px;
 			margin:0px;
 		}
-		#header{
+/*		html,body{
 			width: 100%;
-			height: 60px;
-			background: #E3E4FA;
+			height: 100%;
+		}*/
+		header{
+			width: 100%;
+			height: 70px;
+			background-color: #232427;
 		}
-		#header img{
-			margin-left:120px;
+		/*星空logo*/
+		header #logo{
+			width: 85px;
+			height: 60px;
+			margin-left: 10%;
+			background: url(images/logo.png);
 		}
 		#content{
 			width: 1000px;
@@ -42,59 +50,232 @@
 			height: 80px;
 			border-bottom: 3px solid #000;
 		}
-		table{
-			width: 800px;
-			height: 80px;
-			margin: 0 auto;
-			font-size: 20px;
-			border-bottom: 1px solid gray;
-		}
-		table #send{
-			width: 100px;
-			height: 40px;
-			margin-left: 100px;
-			font-weight: bold;
-			font-size: 18px;
-			background: Lavender;
-			border: none;
-		}
-		table #booklist{
-			font-size: 35px;
-			font-weight: bold;
-			font-family: "微软雅黑";
+	ul{
+		list-style:none;  
+		width:900px;
+		height:100px; 
+		line-height:80px; 
+		border-bottom:1px solid #000;
+		/*border-top:0px;*/
+		font-size:18px;
+		margin:  20px auto;
+	}
+	li1,li2,li3,li4,li5{
+		display: block;
+		height: 100px;
+		width: 50px;
+		float: left;
+		margin-left: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		text-align: center;
+	}
+	#sends{
+		width: 180px;	
+		margin-left: 80px;
+	}
+	 #send{
 
-		}
-		table a{
-			text-decoration: none;
-		}
+		width: 100px;
+		height: 40px;
+		/*float: right;*/
+		/*line-height: 80px;*/
+		margin: 8px;
+		margin-left: 30px;
+		background: Lavender;
+		font-weight: bold;
+		font-size: 20px;
+		border: none;
+		cursor: pointer;	
+	}
+	 #book{
+		/*background: red;*/
+		width: 150px;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	#link{
+		width: 220px;
+	}
+	a{
+		text-decoration: none;
+		color: #000;
+	}
+	/*#foot{
+		width: 100%;
+		height: 30px;
+		background-color:Lavender;
+		color: #000;
+		text-align: center;
+		font-family: "微软雅黑";
+		font-size: 20px;
+	}*/
+	span{
+		cursor: pointer;
+	}
+	/*遮罩层*/
+	.mask{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.6);
+		display: none;
+		transition:background-color 1s ease;
+		webkit-transition:background-color 1s ease;
+	}
+	.mask .dialog{
+		position: relative;
+		width: 600px;
+		height: 400px;
+		left: 50%;
+		top: 50%;
+		margin-left: -300px;
+		margin-top: -200px;
+		background-color: white;
+	}
+	.mask .dialog .title{
+		padding: 30px 60px;
+		font-size: 36px;
+	}
+	.mask .dialog .close{
+		position: relative;
+		right: 20px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+		float: right;
+		background: url(images/icon_close.png) left center no-repeat;
+		cursor: pointer;
+	}
+	.mask .dialog .main{
+		border-top: 1px solid #ccc;
+		width: 480px;
+		height: 200px;
+		font-size: 18px;
+		padding: 50px 0 0 30px;
+	}
+	.mask .dialog .main a{
+		position: relative;
+		top: 20px;
+		left: 30px;
+		text-decoration: underline;
+		color: blue;
+	}
 	</style>
 </head>
 <body>
 	<header>
-		<div id="header">
-			<img src="./images/xingkong.png" alt="" width="180"; height="60">
-		</div>
+		<a href="www.xingkong.us"><div id="logo"></div></a>
 	</header>
 	<container>
 		<div id="content">
 			<div id="button"><a href="D_addBook.html"><input type="button" value="+ 添加" id="add"></a>
 			</div>
-			<div>
-				<table> 
+			<!-- <div id="List" class="bookList">
+				
 				    <tr> 
-				        <td width="150" id="booklist"> <a href="">书单1</a> </td> 
+				        <td width="150" id="booklist"> <a href="">15软件工程一班书单1</a> </td> 
 				        <td width="320"> <a href="">链接:</a> </td> 
 				        <td width="60"><a href="">删除</a></td> 
 				        <td width="60"> <a href="">编辑</a></td>
 				        <td ><input type="button" value="发布" id="send"></td>
 				    </tr> 
-				</table> 
-			</div>
+				 <ul>
+				 	<li1 id="book" ><a href="">书单1</a></li1>
+				 	<li2 id="link"> <a href="">链接:www.baidu.com/</a> </li2>
+				 	<li3><a href="">删除</a></li3>
+				 	<li4><a href="">编辑</a></li4>
+				 	<li5 id="sends"><input type="button" value="发布" id="send" name="send"></li5>
+				 </ul>
+			</div> -->
 			
 		</div>
+		<!-- 遮罩层 -->
+		<div class="mask" id="mask">
+			<div class="dialog" id="dialog">
+				<div class="close" id="close"></div>
+				<div class="title">分享</div>
+				<div class="main">
+					<p>复制链接后发送到需要购买的人</p>
+					<a href="#" id="booListUrl">
+						www.xingkong.us
+					</a>
+				</div>
+			</div>
+		</div>
 	</container>
-	<footer>
-		
-	</footer>
+	<!-- <footer>
+			<div id= "foot">@星空技术研发中心创作</div>
+	</footer> -->
 </body>
+<script type="text/javascript">
+	window.onload=function(){
+		//后端数据
+		var num = '[{"id":"31","listname":"\u4e66\u53551","listhref":""},{"id":"32","listname":"\u4e66\u53551","listhref":""},{"id":"33","listname":"\u4e66\u53551","listhref":""},{"id":"34","listname":"\u65e5\u4e86\u72d7\u4e86","listhref":""}]';
+		var data = JSON.parse(num);
+		// alert(data[0].id);
+			
+		for(var i = 0; i < data.length; i++){
+			//获取书架祖父节点
+			var content = document.getElementById('content');
+			//创建一个父div
+			var outDiv = document.createElement('div');
+			outDiv.id = 'List' + i;//设置div的ID
+			outDiv.className = 'bookList';//设置div的class
+			var ul= document.createElement('ul');//创建一个ul
+			//创建4个li标签
+			var bookNameLi = document.createElement('li1');//书名
+			var bookLink = document.createElement('li2');//链接
+			var Delete = document.createElement('li3');//删除
+			var Compile = document.createElement('li4');//编辑
+			var inputCheck = document.createElement('li5');//提交
+			var a = document.createElement("a");
+			var input = document.createElement("input");
+			//内容并在li中添加a标签
+			bookNameLi.innerHTML = "<a href=''> "+ data[i].listname + "</a> ";
+			bookLink.innerHTML = "<a href=''>链接:"+ data[i].listhref + "</a>";
+			Delete.innerHTML = " <span>删除</span> ";
+			Compile.innerHTML = "<a href='D_addBook_edit.html'>编辑</a>";
+			inputCheck.innerHTML = "";
+			//li所带属性
+			bookNameLi.id = 'book';
+			bookLink.id = 'link';
+			inputCheck.id = 'sends';
+			//input
+			input.type= 'button';
+			input.name = 'send' + i;
+			input.id= 'send';
+			input.value = '发布';
+			inputCheck.appendChild(input);
+			//在删除哪里放个id自增
+			Delete.id = 'delete' + i;
+			//在ul中添加Li
+			ul.appendChild(bookNameLi);
+			ul.appendChild(bookLink);
+			ul.appendChild(Delete);
+			ul.appendChild(Compile);
+			ul.appendChild(inputCheck);
+			outDiv.appendChild(ul);
+			content.appendChild(outDiv);
+		} 
+		// for (var i = 0; i < 4; i++) {
+		// 	// var deletes = document.getElementsByName("li3");
+		// 	var List = document.getElementById("List" + i);					
+		// 	var deleteid = document.getElementById("delete" + i);
+		// 	deleteid.onclick = function(){			
+		// 			if(confirm("确定删除么？")){
+		// 				List.parentNode.removeChild(List);
+
+		// 				alert("删除成功！");
+		// 			}
+		// 		}
+		// 		break;
+
+		// }
+		
+	}
+</script>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑书单</title>
+	<link rel="stylesheet" type="text/css" href="css/D_addBook.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+	<header>
+		<a href="www.xingkong.us"><div id="logo"></div></a>
+	</header>
+	<div id="container">
+		<div id="title">
+			<input id="title_left" readonly value="书单1" />
+			<div id="title_right">
+				<div class="edit">编辑</div>
+				<div class="back"><a href="J_addbook.html">返回</a></div>
+			</div>
+		</div>
+		<form method="post" action="" id="bookShelf">
+			<!-- <div id="book1" class="bookInfo">
+				<span>书名：</span>
+				<input type="text" id="bookName1" name="bookName1" class="bookName" />
+				<span>价格：</span>
+				<input type="text" id="bookPrice1" name="bookPrice1" class="bookPrice" />
+				<span>折后价：</span>
+				<input type="text" id="bookDiscount1" name="bookDiscount1" class="bookDiscount" />
+				<!-- 标识数据库ID号 -->
+				<!-- <input type="text" name="flag1" id="flag1" style="display:none" />
+			</div> -->
+		</form>
+		<div id="add">添加</div>
+		<input type="submit" value="保存" id="sure">
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		var isEditing = false;
+		var listName = null;
+		
+		function editListName(){
+			if(isEditing){
+				$('.edit').html('编辑');
+				$('#title_left').attr("readonly",true);
+				$('#title_left').css("border","none");
+				isEditing = false;
+			}else{
+				$('.edit').html('保存');
+				$('#title_left').attr("readonly",false);
+				$('#title_left').css("border","1px solid #000");
+				isEditing = true;
+			}
+		}
+		$('#add').on('click', addItem);
+		$('.edit').on('click',editListName);
+
+		//书本数据
+		// var data='{"book":["qw","we","er","rt"],"price":["12.00","23.00","34.00","45.00"],"Dprice":["10.000","20.000","30.000","40.000"],"booknum":["0","0","0","0"],"bid":["138","139","140","141"],"error_code":"0","username":"23121","studentnum":"123123123123","BOOKID":31,"listname":"\u4e66\u53551"}';
+
+		var data = '{"book":["xxxx","\u4e66\u540d2","\u4e66\u540d3"],"price":["11.00","20.00","23.00"],"Dprice":["10.000","10.300","21.000"],"booknum":["0","0","0"],"bid":["148","149","150"],"error_code":"0","username":"23121","studentnum":"123123123123","BOOKID":34,"listname":"\u65e5\u4e86\u72d7\u4e86"}';
+
+		var bookEdit = JSON.parse(data);
+
+		//alert(bookEdit.book[0]);
+
+		//遍历循坏
+		for(var i = 0;i < bookEdit['book'].length;i++){
+			//每循环一次添加一个框
+			addItem();
+
+			$('#bookName'+(i+1)).val(bookEdit.book[i]);
+			$('#bookPrice'+(i+1)).val(bookEdit.price[i])
+			$('#bookDiscount'+(i+1)).val(bookEdit.Dprice[i])
+
+		}
+		//书单名
+		$('#title_left').val(bookEdit.listname);
+		//var bookcount = i;
+		function addItem(){
+			//动态添加dom
+			
+			$('#bookShelf').append('<div id="book'+(i+1)+'" class="bookInfo"> <span>书名：</span> <input type="text" id="bookName'+(i+1)+'" name="bookName'+(i+1)+'" class="bookName" /> <span>价格：</span> <input type="text" id="bookPrice'+(i+1)+'" name="bookPrice'+(i+1)+'" class="bookPrice" /> <span>折后价：</span> <input type="text" id="bookDiscount'+(i+1)+'" name="bookDiscount'+(i+1)+'" class="bookDiscount" /> <input type="text" id="flag'+(i+1)+'" name="flag'+(i+1)+'" style="display:none" /></div>');
+			if(i >= bookEdit['book'].length){
+				i++;
+			}
+		}
+	}
+</script>
