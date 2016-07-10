@@ -3,9 +3,13 @@ window.onload=function(){
 	var psd = document.getElementById('psd');
 	var login = document.getElementById('login');
 	var conten = document.getElementById('conten');
+	var register = document.getElementById('register');
+	var Login = document.getElementById("Login");
 	var name_length = 0;
 	var password_length = 0;
-
+	var booblenum =0;
+	var booblepsd =0; 
+	var reg = new RegExp("^[0-9]*$");
 	user.onfocus = function(){
 		conten.style.display="inline";
 	};
@@ -13,23 +17,26 @@ window.onload=function(){
 		name_length=this.value.length;
 		// alert(name_length);
 		// var re=/[^\w\u4e00-\u9fa5]/g;
-		var re = /[0-9]/;
+		
 		if(this.value==""){
 			conten.innerHTML='<i class="err"></i>不能为空!';
 		}
-		else if(!re.test(this.value)){
+		else if(!reg.test(this.value)){
 			conten.innerHTML='<i class="err"></i>学号只可以为数字'; 
+			
 		}
 		else if(name_length != 12){
 			conten.innerHTML='<i class="err"></i>学号位数有误!';
 		}
-		else
+		else{
 			conten.innerHTML='<i class="ok"></i>OK!';
+			booblenum =1;
+			}
 	}
 	psd.onfocus = function(){
 		if (user.value.length == 0) {
-			conten.innerHTML='<i class="err"></i>请先输入学号'; 
-			// alert("错了");
+			conten.innerHTML='<i class="err"></i>请先输入学号';  
+			// alert("");
 			
 		}else{
 			conten2.style.display="inline";
@@ -43,20 +50,56 @@ window.onload=function(){
 			conten2.style.display="inline";
 			conten2.innerHTML='<i class="err"></i>不能为空!';
 		}
-		else if(num1.test(this.vale)){
+		else if(num1.test(this.value)){
 			conten2.innerHTML='<i class="err"></i>含有空格!';
 		}
 		else{
 			conten2.innerHTML='<i class="OK"></i>OK!';
+			booblepsd = 1;
 		}
 	};
-	login.onclick = function(){
-		if(1){
-
+	// login.onMouseOver = function(){
+	// 	// if(booblepsd == 1 && booblenum == 1){
+	// 	// 	login.disabled =false;
+	// 	// 	// alert("25245");
+	// 	// }
+	// 	alert("25245");
+	// };
+	// login.onclick = function(){
+		
+	// 	{
+	// 		alert("登陆成功");
+	// 	}	
+		
+	// };
+	Login.onsubmit = function(){		
+		if (confirm("确认提交表单吗？")){
+			var usrename = user.value;
+			var password = psd.value;
+			if (usrename==="") {
+				alert("学号为空,请填写学号。");
+				Login.studentnum.focus(); 
+				return false;
+			}else if (!reg.test(usrename)) {
+				alert("学号只可以为数字");
+				Login.studentnum.focus(); 
+				return false;
+			}
+			else if (name_length !=12) {
+				alert("学号位数有误");
+				Login.studentnum.focus();
+				return false;
+			}
+			if (password ==="") {
+				alert("密码为空,请输入密码。");
+				Login.password.focus(); 
+				return false;
+			}
+			alert("学号" + username + "登陆成功！");
 		}
 		else{
-			alert("登陆成功");
-		}	
-		
+
+			return true;
+		}
 	};
-}
+};

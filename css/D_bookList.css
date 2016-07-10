@@ -167,3 +167,14 @@ header #logo{
 	width: 25px;
 	height: 25px;
 }
+
+/*提交按钮*/
+#container #ensure{
+	width: 40px;
+	height: 30px;
+	float: right;
+	margin: 50px 120px 100px 0;
+	font-size: 18px;
+	font-weight: bold;
+
+}
