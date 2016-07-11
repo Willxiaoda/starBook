@@ -66,8 +66,6 @@
 				isEditing = true;
 			}
 		}
-		$('#add').on('click', addItem);
-		$('.edit').on('click',editListName);
 
 		//书本数据
 		// var data='{"book":["qw","we","er","rt"],"price":["12.00","23.00","34.00","45.00"],"Dprice":["10.000","20.000","30.000","40.000"],"booknum":["0","0","0","0"],"bid":["138","139","140","141"],"error_code":"0","username":"23121","studentnum":"123123123123","BOOKID":31,"listname":"\u4e66\u53551"}';
@@ -98,5 +96,8 @@
 				i++;
 			}
 		}
+		//事件触发
+		$('#add').on('click', addItem);
+		$('.edit').on('click',editListName);
 	}
 </script>

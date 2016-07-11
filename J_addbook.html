@@ -40,7 +40,7 @@
 			color: #000;
 			font-family: "微软雅黑";
 			font-weight: bold;
-			font-size: 20px; 
+			font-size: 20px;
 			border: none;
 			/*background: url();*/
 
@@ -51,10 +51,10 @@
 			border-bottom: 3px solid #000;
 		}
 	ul{
-		list-style:none;  
+		list-style:none;
 		width:900px;
-		height:100px; 
-		line-height:80px; 
+		height:100px;
+		line-height:80px;
 		border-bottom:1px solid #000;
 		/*border-top:0px;*/
 		font-size:18px;
@@ -72,7 +72,7 @@
 		text-align: center;
 	}
 	.sends{
-		width: 180px;	
+		width: 180px;
 		margin-left: 80px;
 	}
 	.send{
@@ -87,7 +87,7 @@
 		font-weight: bold;
 		font-size: 20px;
 		border: none;
-		cursor: pointer;	
+		cursor: pointer;
 	}
 	.book{
 		/*background: red;*/
@@ -175,7 +175,6 @@
 			<div id="button"><a href="D_addBook.html"><input type="button" value="+ 添加" id="add"></a>
 			</div>
 			<!-- <div id="List" class="bookList">
-				
 				    <tr> 
 				        <td width="150" id="booklist"> <a href="">15软件工程一班书单1</a> </td> 
 				        <td width="320"> <a href="">链接:</a> </td> 
@@ -191,7 +190,6 @@
 				 	<li5 id="sends"><input type="button" value="发布" id="send" name="send"></li5>
 				 </ul>
 			</div> -->
-			
 		</div>
 		<!-- 遮罩层 -->
 		<div class="mask" id="mask">
@@ -212,12 +210,19 @@
 	</footer> -->
 </body>
 <script type="text/javascript">
+
 	window.onload=function(){
 		//后端数据
 		var num = '[{"id":"31","listname":"\u4e66\u53551","listhref":""},{"id":"32","listname":"\u4e66\u53551","listhref":""},{"id":"33","listname":"\u4e66\u53551","listhref":""},{"id":"34","listname":"\u65e5\u4e86\u72d7\u4e86","listhref":""}]';
+		//解释数据
 		var data = JSON.parse(num);
+		//获取发布class
+		var send = document.getElementsByClassName("send");
+		//获取关闭按钮id
+		var close = document.getElementById("close");
+		//获取遮罩层id
+		var mask = document.getElementById('mask');
 		// alert(data[0].id);
-			
 		for(var i = 0; i < data.length; i++){
 			//获取书架祖父节点
 			var content = document.getElementById('content');
@@ -247,11 +252,11 @@
 			bookNameLi.className = 'book';
 			bookLink.className  = 'link';
 			inputCheck.className = 'sends';
-			input.className = 'send';
 			//input
+			input.className = 'send';
 			input.type= 'button';
-			input.name = 'send' + i;
-			input.id= 'send';
+			input.name = 'send' + (i+1);
+			input.id= 'send' + (i+1);
 			input.value = '发布';
 			inputCheck.appendChild(input);
 			//在删除哪里放个id自增
@@ -264,12 +269,12 @@
 			ul.appendChild(inputCheck);
 			outDiv.appendChild(ul);
 			content.appendChild(outDiv);
-		} 
+		}
 		// for (var i = 0; i < 4; i++) {
 		// 	// var deletes = document.getElementsByName("li3");
-		// 	var List = document.getElementById("List" + i);					
+		// 	var List = document.getElementById("List" + i);
 		// 	var deleteid = document.getElementById("delete" + i);
-		// 	deleteid.onclick = function(){			
+		// 	deleteid.onclick = function(){
 		// 			if(confirm("确定删除么？")){
 		// 				List.parentNode.removeChild(List);
 
@@ -279,14 +284,17 @@
 		// 		break;
 
 		// }
-		
-	}
-
-	/*D_触发遮罩层*/
-	// document.getElementById('send').onclick=function(){
-	// 	alert(1);
-	// 	var mask = document.getElementById('mask');
-	// 	mask.style.display = 'inline';
-	// }
+		//D_触发遮罩层
+		for(var i = 0; i < data.length; i++){
+			//发布触发
+			send[i].onclick = function(){
+				mask.style.display = 'inline';
+			}
+		}
+		//关闭遮罩层
+		close.onclick = function(){
+			mask.style.display = 'none';
+		}
+	}//window onload 结束。
 </script>
 </html>
