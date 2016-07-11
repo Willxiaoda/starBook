@@ -5,6 +5,20 @@
 	<title>添加书单</title>
 	<link rel="stylesheet" type="text/css" href="css/D_addBook.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<!-- 价格框判断，只能为数字或小数点（一位） -->
+	<script>
+		function checkNum(obj){
+			//先把非数字的都替换掉，除了数字和.
+			obj.value = obj.value.replace(/[^\d.]/g,"");
+			//必须保证第一个为数字而不是.
+			obj.value = obj.value.replace(/^\./g,"");
+			//保证只有出现一个.而没有多个.
+			obj.value = obj.value.replace(/\.{2,}/g,".");
+			//保证.只出现一次，而不能出现两次以上
+			obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+		}
+	</script>
 </head>
 <body>
 	<header>
@@ -24,9 +38,11 @@
 					<span>书名：</span>
 					<input type="text" id="bookName1" name="bookName1" class="bookName" />
 					<span>价格：</span>
-					<input type="text" id="bookPrice1" name="bookPrice1" class="bookPrice" />
+					<!-- onkeyup="checkNum(this)输入框判断 -->
+					<input type="text" id="bookPrice1" name="bookPrice1" class="bookPrice" 
+					onkeyup="checkNum(this)" />
 					<span>折后价：</span>
-					<input type="text" id="bookDiscount1" name="bookDiscount1" class="bookDiscount" />
+					<input type="text" id="bookDiscount1" name="bookDiscount1" class="bookDiscount" onkeyup="checkNum(this)" />
 					<!-- 标识数据库ID号 -->
 					<input type="text" name="flag1" id="flag1" style="display:none" />
 				</div>
@@ -45,7 +61,7 @@
 		var listName = null;
 		function addItem(){
 			//动态添加dom
-			$('#bookShelf').append('<div id="book'+bookcount+'" class="bookInfo"> <span>书名：</span> <input type="text" id="bookName'+bookcount+'" name="bookName'+bookcount+'" class="bookName" /> <span>价格：</span> <input type="text" id="bookPrice'+bookcount+'" name="bookPrice'+bookcount+'" class="bookPrice" /> <span>折后价：</span> <input type="text" id="bookDiscount'+bookcount+'" name="bookDiscount'+bookcount+'" class="bookDiscount" /> <input type="text" id="flag'+bookcount+'" name="flag'+bookcount+'" style="display:none" /></div>');
+			$('#bookShelf').append('<div id="book'+bookcount+'" class="bookInfo"> <span>书名：</span> <input type="text" id="bookName'+bookcount+'" name="bookName'+bookcount+'" class="bookName" /> <span>价格：</span> <input type="text" id="bookPrice'+bookcount+'" name="bookPrice'+bookcount+'" class="bookPrice" onkeyup="checkNum(this)" /> <span>折后价：</span> <input type="text" id="bookDiscount'+bookcount+'" name="bookDiscount'+bookcount+'" class="bookDiscount" onkeyup="checkNum(this)" /> <input type="text" id="flag'+bookcount+'" name="flag'+bookcount+'" style="display:none" /></div>');
 			bookcount++;
 			// alert(bookcount);
 		}
@@ -72,9 +88,9 @@
 				isEditing = true;
 			}
 		}
+
 		$('#add').on('click', addItem);
 		$('#delete').on('click', removeItem);
 		$('.edit').on('click',editListName);
 	}
-	
 </script>

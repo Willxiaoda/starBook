@@ -5,6 +5,19 @@
 	<title>编辑书单</title>
 	<link rel="stylesheet" type="text/css" href="css/D_addBook.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- 价格框判断，只能为数字或小数点（一位） -->
+	<script>
+		function checkNum(obj){
+			//先把非数字的都替换掉，除了数字和.
+			obj.value = obj.value.replace(/[^\d.]/g,"");
+			//必须保证第一个为数字而不是.
+			obj.value = obj.value.replace(/^\./g,"");
+			//保证只有出现一个.而没有多个.
+			obj.value = obj.value.replace(/\.{2,}/g,".");
+			//保证.只出现一次，而不能出现两次以上
+			obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+		}
+	</script>
 </head>
 <body>
 	<header>
@@ -37,9 +50,9 @@
 </html>
 <script type="text/javascript">
 	window.onload = function(){
+		//shi
 		var isEditing = false;
 		var listName = null;
-		
 		function editListName(){
 			if(isEditing){
 				$('.edit').html('编辑');
@@ -80,8 +93,7 @@
 		//var bookcount = i;
 		function addItem(){
 			//动态添加dom
-			
-			$('#bookShelf').append('<div id="book'+(i+1)+'" class="bookInfo"> <span>书名：</span> <input type="text" id="bookName'+(i+1)+'" name="bookName'+(i+1)+'" class="bookName" /> <span>价格：</span> <input type="text" id="bookPrice'+(i+1)+'" name="bookPrice'+(i+1)+'" class="bookPrice" /> <span>折后价：</span> <input type="text" id="bookDiscount'+(i+1)+'" name="bookDiscount'+(i+1)+'" class="bookDiscount" /> <input type="text" id="flag'+(i+1)+'" name="flag'+(i+1)+'" style="display:none" /></div>');
+			$('#bookShelf').append('<div id="book'+(i+1)+'" class="bookInfo"> <span>书名：</span> <input type="text" id="bookName'+(i+1)+'" name="bookName'+(i+1)+'" class="bookName" /> <span>价格：</span> <input type="text" id="bookPrice'+(i+1)+'" name="bookPrice'+(i+1)+'" class="bookPrice" onkeyup="checkNum(this)" /> <span>折后价：</span> <input type="text" id="bookDiscount'+(i+1)+'" name="bookDiscount'+(i+1)+'" class="bookDiscount" onkeyup="checkNum(this)" /> <input type="text" id="flag'+(i+1)+'" name="flag'+(i+1)+'" style="display:none" /></div>');
 			if(i >= bookEdit['book'].length){
 				i++;
 			}
