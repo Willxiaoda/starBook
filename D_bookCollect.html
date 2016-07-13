@@ -4,86 +4,73 @@
 	<meta charset="UTF-8">
 	<title>书单详情</title>
 	<link rel="stylesheet" type="text/css" href="css/D_bookList.css" />
+	<style type="text/css">
+		#container #bookShelf #type ul>li:last-child{
+			text-align: center;
+		}
+		#container #bookShelf .bookList ul>li:last-child{
+			padding-left: 0;
+		}
+		#container #title #title_right{
+			margin-right: 100px;
+		}
+		#container #title #title_right a{
+			color: #6756FA;
+		}
+		#container #total{
+			margin: 80px 100px 100px 0;
+			color: red;
+			float: right;
+			font-size: 34px;
+		}
+		#container #total #totalMoney{
+			width: 150px;
+			height: 50px;
+			color: red;
+			font-size: 34px;
+			border: none;
+		}
+	</style>
 </head>
 <body>
 	<header>
 		<a href="www.xingkong.us"><div id="logo"></div></a>
 	</header>
-	<!-- studentlist.php -->
-	<form method="post" action="" id="juMent">
-		<div id="container">
-			<div id="title">
-				<div id="title_left">书单1</div>
-					<div id="title_right">
-
-						<span>姓名：</span>
-						<input type="text" name="usarname" id="stuName" placeholder="请输入姓名" />
-						<span>学号：</span>
-						<input type="text" name="stunum" id="stuNum" placeholder="请输入12位学号" />
-					</div>
-				</div>
-			 <div id="bookShelf">
-				<div id="type">
-					<ul>
-						<li>书名</li>
-						<li>价格</li>
-						<li>折后价</li>
-						<li>是否购买</li>
-					</ul>
+	<div id="container">
+		<div id="title">
+			<div id="title_left">书单1</div>
+				<div id="title_right">
+					<a href=""><span>点击查看已购买详情</span></a>
 				</div>
 			</div>
-			<input type="submit" name="ensure" id="ensure" value="提交" />
+		 <div id="bookShelf">
+			<div id="type">
+				<ul>
+					<li>书名</li>
+					<li>价格</li>
+					<li>折后价</li>
+					<li>数量</li>
+				</ul>
+			</div>
 		</div>
-	</form>
+		<div id="total"><span>总价：</span><input type="text" name="totalMoney" id="totalMoney" readonly /></div>
+	</div>
 </body>
 <script type="text/javascript">
 window.onload = function(){
-	//form标签id
-	var juMent = document.getElementById('juMent');
-	//姓名框id
-	var stuName = document.getElementById('stuName');
-	//学号id
-	var stuNum = document.getElementById('stuNum');
-	//是否为中文
-	var re =/[\u4e00-\u9fa5]/;
 
 	//后端数据。
 	// var book='{"username":"\u5b66\u59d4\u59d3\u540d","studentnum":"201510098111","error_code":"0","book":["\u65b0\u4e16\u7eaa\u5927\u5b66\u82f1\u8bed\u7cfb\u5217\u6559\u6750\uff08\u7b2c\u4e8c\u7248\uff09\u9605\u8bfb\u6559\u7a0b\uff082\uff09\u5b66\u751f\u7528\u4e66","\u8ba1\u7b97\u673a\u82f1\u8bed(\u5b66\u751f\u7528\u4e66)","Java\u7a0b\u5e8f\u8bbe\u8ba1\u4e0e\u5b9e\u8df5\u6559\u7a0b","\u9ad8\u7b49\u6570\u5b66\uff08\u7b2c\u4e03\u7248\uff09\uff08\u4e0b\u518c\uff09","\u4e2d\u56fd\u8fd1\u73b0\u4ee3\u53f2\u7eb2\u8981\uff082015\u5e74\u4fee\u8ba2\u7248\uff09","Java\u7a0b\u5e8f\u8bbe\u8ba1\u4e60\u9898\u7cbe\u7f16","\u96f6\u70b9\u8d77\u98de\u5b66Dreamweaver+Flash+Photoshop CS6\u7f51\u9875\u8bbe\u8ba1\uff08\u914d\u5149\u76d8\uff09","\u79bb\u6563\u6570\u5b66\u53ca\u5e94\u7528(\u7b2c\u4e8c\u7248)","\u5927\u5b66\u751f\u5fc3\u7406\u5065\u5eb7\u6559\u80b2-\u5fc3\u7075\u6210\u957f\u624b\u518c"],"price":[0,1,2,3,4,5,6,7,8],"Dprice":[0,1,2,3,4,5,6,7,8]}';
-	var book='{"book":["\u7b2c\u4e00\u672c\u4e66","\u9ad8\u6570\u4f60\u5988\u903c","\u5386\u53f2\u6700\u70e6\u4eba"],"price":["20.00","1.00","2.00"],"Dprice":["10.000","0.200","1.000"],"booknum":["0","0","0"],"bid":["151","152","153"],"error_code":"0","username":"\u6c5f\u6e90","studentnum":"123456789000","BOOKID":35,"listname":"\u7b2c\u4e00\u4e66\u5355"}';
+	var book='{"book":["\u7b2c\u4e00\u672c\u4e66","\u9ad8\u6570\u4f60\u5988\u903c","\u5386\u53f2\u6700\u70e6\u4eba"],"price":["20.00","1.00","2.00"],"Dprice":["10.000","0.200","1.000"],"booknum":["0","0","0"],"bid":["151","152","153"],"error_code":"0","username":"\u6c5f\u6e90","studentnum":"123456789000","BOOKID":35,"listname":"\u7b2c\u4e00\u4e66\u5355","total":1000}';
 	//解释数据
 	var b=JSON.parse(book);
-
-	//表单提交数据前判断
-	juMent.onsubmit = function(){
-		if (stuName.value == "") {
-			alert('名字不能为空');
-			return false;
-		}
-		else if(!re.test(stuName.value)){
-			alert('名字只能为中文');
-			return false;
-		}
-		else if(stuNum.value.length!=12){
-			alert('请您输入12位学号');
-			return false;
-		}
-		else if(isNaN(Number(stuNum.value))){
-			alert('学号只能为数字');
-			return false;
-		}
-		else{
-
-			return confirm('确定提交吗？提交后只能联系班委修改。');
-		}
-	}
-
 	/*动态样板
 	<div id="book1" class="bookList">
 		<ul>
 			<li>大学生心理健康</li>
 			<li>13.88</li>
 			<li>10.55</li>
-			<li><input type="checkbox" name="checkbox1" id="check1" /></li>
+			<li>5</li>
 		</ul>
 	</div>*/
 
@@ -100,28 +87,22 @@ window.onload = function(){
 		var bookNameLi = document.createElement('li');
 		var bookPriceLi = document.createElement('li');
 		var bookDiscount = document.createElement('li');
-		var inputLi = document.createElement('li');
-		var inputCheck = document.createElement('input');
+		var bookCountLi = document.createElement('li');
 		//li内容
 		bookNameLi.innerHTML = b.book[i];
 		bookPriceLi.innerHTML = b.price[i];
 		bookDiscount.innerHTML = b.Dprice[i];
+		bookCountLi.innerHTML = b.booknum[i];
 		//input类型
-		inputCheck.type = 'checkbox';
-		//input name
-		inputCheck.name = 'checkbox' + i;
-		inputCheck.id = 'checkbox' + i;
-		//接受书本id数据
-		inputCheck.value = b.bid[i];
-		//添加
-		inputLi.appendChild(inputCheck);
 		ul.appendChild(bookNameLi);
 		ul.appendChild(bookPriceLi);
 		ul.appendChild(bookDiscount);
-		ul.appendChild(inputLi);
+		ul.appendChild(bookCountLi);
 		outDiv.appendChild(ul);
 		bookShelf.appendChild(outDiv);
 	}
+	var totalMoney = document.getElementById('totalMoney');
+	totalMoney.value = b.total;
 }
 </script>
 </html>

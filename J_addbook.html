@@ -60,7 +60,7 @@
 		font-size:18px;
 		margin:  20px auto;
 	}
-	li1,li2,li3,li4,li5{
+	ul li{
 		display: block;
 		height: 100px;
 		width: 50px;
@@ -232,11 +232,11 @@
 			outDiv.className = 'bookList';//设置div的class
 			var ul= document.createElement('ul');//创建一个ul
 			//创建4个li标签
-			var bookNameLi = document.createElement('li1');//书名
-			var bookLink = document.createElement('li2');//链接
-			var Delete = document.createElement('li3');//删除
-			var Compile = document.createElement('li4');//编辑
-			var inputCheck = document.createElement('li5');//提交
+			var bookNameLi = document.createElement('li');//书名
+			var bookLink = document.createElement('li');//链接
+			var Delete = document.createElement('li');//删除
+			var Compile = document.createElement('li');//编辑
+			var inputCheck = document.createElement('li');//提交
 			var a = document.createElement("a");
 			var input = document.createElement("input");
 			//内容并在li中添加a标签
@@ -248,9 +248,11 @@
 			//li所带属性
 			bookNameLi.id = 'book'+(i+1);
 			bookLink.id = 'link'+(i+1);
-			inputCheck.id = 'sends'+(i+1) ;
+			Compile.id = 'edit' + (i+1);
+			inputCheck.id = 'sends'+(i+1);
 			bookNameLi.className = 'book';
 			bookLink.className  = 'link';
+			Compile.className = 'edit';
 			inputCheck.className = 'sends';
 			//input
 			input.className = 'send';

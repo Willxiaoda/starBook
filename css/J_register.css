@@ -1,0 +1,287 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+
+}
+#body{
+	width: 100%;
+	height: 627px;
+	/*overflow-y: scroll;*/
+	background-image:url(../images/background.png  );
+	/*background-size: 100%;*/
+
+
+
+}
+#header{
+	width: 100%;
+	height: 60px;
+	/*background-color:#000 ;*/
+	/*Thistle1*/
+}
+#header img{
+	margin-left: 100px;
+}
+#content{
+	width: 500px;
+	/*height: 100%;*/
+	margin: 0 auto;
+	/*border: 1px solid Purple;*/
+	/*background: url(../image/background.jpg);*/
+}
+#content #image{
+	width: 400px;
+	height: 180px;
+	/*border: 1px solid red;*/
+	/*float: none;*/
+	/*position: absolute;*/
+	margin: 10px auto;
+	text-align: center;
+}
+#image #word{
+	display: block;
+	width: 400px;
+	height: 100px;
+	/*border: 1px solid red;*/
+	font-size: 100px;
+	font-family:"华文彩云";
+	font-weight: bold;
+	color: blue;
+	margin:0 auto;
+
+	/*color:#228DFF;*/
+		/*font-family:Monoton;*/
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	color:#fff;
+	-webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+	-moz-animation: neon1 1.5s ease-in-out infinite alternate;
+	animation: neon1 1.5s ease-in-out infinite alternate; 
+	/*box-shadow: 3px 3px 1px 1px ;*/
+}
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+@-moz-keyframes neon1{
+	from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+@keyframes neon1{
+	from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+
+
+#image #words{
+	display: block;
+	width: 300px;
+	height: 50px;
+	/*border: 1px solid blue;*/
+	font-size: 50px;
+	font-weight: bold;
+	font-family:"华文彩云";
+	color:blue;
+	margin:10px auto;
+	/*margin-left: 30px;*/
+}
+#Form{
+	width: 400px;
+	height: 350px;
+	margin: 0 auto;
+	background-image:url(../images/wood1.jpg);
+	background-position: center;
+	border-radius: 10%;
+	box-shadow: 10px 10px 15px 3px #000;
+	/*padding-top: 25px;*/
+}
+#form{
+	float: none;
+	display: block;
+	width: 255px;
+	height: 240px;
+	/*border: 1px solid blue;*/
+	margin:  10px auto;	
+	padding-top: 20px;
+	/*position: relative;*/
+	/*left: 60px;*/
+	/*line-height: 20px;*/
+	font-weight: bold;
+	/*background: Khaki;*/
+	
+	/*padding: 5px;*/
+}
+#form input{
+	/*border: none;*/
+	border-radius: 20%;
+}
+input::-webkit-input-placeholder { 
+color:#D0C3E0 ;
+}
+label{
+	position: relative;
+	bottom: 5px;
+	font-size: 20px;
+	font-family:"微软雅黑";
+	
+}
+#form #user{
+	width: 260;
+	height: 75px;
+	/*background: red;*/
+	margin: 5px;
+	
+}
+ p{
+	text-align: right;
+}
+#form #num{
+	width: 260;
+	height: 75px;
+	/*background: blue;*/
+	margin: 5px;
+}
+
+#form #psd{
+	width: 260;
+	height: 75px;
+	/*background: purple;*/
+	margin: 5px;
+}
+#form #username{
+	/*display: block;*/
+	/*float: left;*/
+	width: 240px;
+	height: 40px;
+	background-color:transparent; 
+   /* left: 50%;
+    margin-left: -125px;*/	
+/*			margin: 0 auto;*/
+	/*width: auto;*/
+}
+#form #password{
+	/*display: block;*/
+	/*float: left;*/
+	width: 240px;
+	height: 40px;
+	background-color:transparent; 
+	/*margin: 15px;*/
+}
+#form #studentnum{
+	width: 240px;
+	height: 40px;
+	background-color:transparent; 
+}
+ #conten{
+	font-size: 15px;
+	font-family: "微软雅黑";
+	color: Purple;
+	/*float: right;*/
+	display: none;
+}
+#conten2{
+	font-size: 15px;
+	font-family: "微软雅黑";
+	color: Purple;
+	/*float: right;*/
+	display: none;
+}
+#conten3{
+	font-size: 15px;
+	font-family: "微软雅黑";
+	color: Purple;
+	display: none;
+}
+#register{
+	width: 80px;
+	height: 40px;
+	/*float: right;*/
+	background: Cyan;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 20%; 
+	position: relative;
+	left: 55px;
+	margin: 20px;
+}
+a{
+	text-decoration: none;
+	color: blue;
+	font-weight: bold;
+	/*margin-left: 30px;*/
+}
+#foot{
+			width: 100%;
+			height: 25px;
+			background-color:Lavender;
+			position: absolute;
+			bottom: 0px;
+			/*top: 15px;*/
+			color: #000;
+			text-align: center;
+			font-family: "微软雅黑";
+			font-size: 18px;
+}
+/*#foot span{
+	position: relative;
+	left: -80px;
+}*/

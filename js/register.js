@@ -6,6 +6,15 @@ window.onload=function(){
 	var psd = document.getElementById('password');
 	var name_length = 0;
 	var password_length = 0;
+
+	var body = document.getElementById('body');
+
+	window.onresize = resizeWin;
+
+	function resizeWin(){
+		body.style.height = window.innerHeight + 'px';
+	}
+	resizeWin();
 	var reg = new RegExp("^[0-9]*$");
 
 	user.onfocus = function(){

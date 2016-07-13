@@ -1,15 +1,22 @@
 window.onload=function(){
-	var user = document.getElementById('usrename'); 
+	var user = document.getElementById('username'); 
 	var psd = document.getElementById('psd');
 	var login = document.getElementById('login');
 	var conten = document.getElementById('conten');
+	var conten2 = document.getElementById('conten2');
 	var register = document.getElementById('register');
 	var Login = document.getElementById("Login");
 	var name_length = 0;
 	var password_length = 0;
-	var booblenum =0;
-	var booblepsd =0; 
 	var reg = new RegExp("^[0-9]*$");
+	var body = document.getElementById('body');
+
+	window.onresize = resizeWin;
+
+	function resizeWin(){
+		body.style.height = window.innerHeight + 'px';
+	}
+	resizeWin();
 	user.onfocus = function(){
 		conten.style.display="inline";
 	};
@@ -26,11 +33,10 @@ window.onload=function(){
 			
 		}
 		else if(name_length != 12){
-			conten.innerHTML='<i class="err"></i>学号位数有误!';
+			conten.innerHTML='<i class="err"></i>学号必须是12位数!';
 		}
 		else{
 			conten.innerHTML='<i class="ok"></i>OK!';
-			booblenum =1;
 			}
 	}
 	psd.onfocus = function(){
@@ -55,7 +61,6 @@ window.onload=function(){
 		}
 		else{
 			conten2.innerHTML='<i class="OK"></i>OK!';
-			booblepsd = 1;
 		}
 	};
 	// login.onMouseOver = function(){

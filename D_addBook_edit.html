@@ -23,29 +23,31 @@
 	<header>
 		<a href="www.xingkong.us"><div id="logo"></div></a>
 	</header>
-	<div id="container">
-		<div id="title">
-			<input id="title_left" readonly value="书单1" />
-			<div id="title_right">
-				<div class="edit">编辑</div>
-				<div class="back"><a href="J_addbook.html">返回</a></div>
+	<form action="">
+		<div id="container">
+			<div id="title">
+				<input id="title_left" readonly value="书单1" />
+				<div id="title_right">
+					<div class="edit">编辑</div>
+					<div class="back"><a href="J_addbook.html">返回</a></div>
+				</div>
 			</div>
+			<div id="bookShelf">
+				<!-- <div id="book1" class="bookInfo">
+					<span>书名：</span>
+					<input type="text" id="bookName1" name="bookName1" class="bookName" />
+					<span>价格：</span>
+					<input type="text" id="bookPrice1" name="bookPrice1" class="bookPrice" />
+					<span>折后价：</span>
+					<input type="text" id="bookDiscount1" name="bookDiscount1" class="bookDiscount" />
+					<!-- 标识数据库ID号 -->
+					<!-- <input type="text" name="flag1" id="flag1" style="display:none" />
+				</div> -->
+			</div>
+			<div id="add">添加</div>
+			<input type="submit" value="保存" id="sure">
 		</div>
-		<form method="post" action="" id="bookShelf">
-			<!-- <div id="book1" class="bookInfo">
-				<span>书名：</span>
-				<input type="text" id="bookName1" name="bookName1" class="bookName" />
-				<span>价格：</span>
-				<input type="text" id="bookPrice1" name="bookPrice1" class="bookPrice" />
-				<span>折后价：</span>
-				<input type="text" id="bookDiscount1" name="bookDiscount1" class="bookDiscount" />
-				<!-- 标识数据库ID号 -->
-				<!-- <input type="text" name="flag1" id="flag1" style="display:none" />
-			</div> -->
-		</form>
-		<div id="add">添加</div>
-		<input type="submit" value="保存" id="sure">
-	</div>
+	</form>
 </body>
 </html>
 <script type="text/javascript">
