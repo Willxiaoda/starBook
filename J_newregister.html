@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name =”viewport” content=” width=device-width, initial-scale=1″ />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/J_newregister.css">
+	 <script type="text/javascript" src="./js/register.js" ></script>
+	<title>注册</title>
+</head>
+<body>
+	<div id="container">
+		<img src="images/background1.png" alt="" id="one">
+		<div id="login">
+			<form action="register.php" method="POST" id="Registers" name="Register">
+				
+					<label for="username">姓名：</label><br>
+					<input type="text" id="username" name="username" placeholder="请输入姓名">
+					<p id="conten">请输入姓名!</p>
+				
+					<label for="studentnum">学号：</label><br>
+					<input type="text" id="studentnum" placeholder="请输入学号" name="studentnum" maxlength="12">
+					<p id="conten2">请输入学号</p>
+					<label for="password">请输入密码:</label><br>
+					<input type="password" id="password" placeholder="******" name="password">
+					<p id="conten3">请输入密码</p>
+					<!-- <br><input type="checkbox" id="remember" >记住密码 -->
+					<!-- <a href="">注册</a> -->
+					<div style="width: 70px;padding: 0px 0px 0px 105px;">
+						<input type="submit" value="  " id="register"  name="register">
+					</div>
+				</form>
+		</div>
+	</div>
+</body>
+</html>

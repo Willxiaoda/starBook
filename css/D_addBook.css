@@ -65,7 +65,6 @@ header #logo{
 	width: 85px;
 	height: 60px;
 	margin-left: 10%;
-	background: url(../images/logo.png);
 }
 
 #container{
@@ -102,6 +101,10 @@ header #logo{
 
 /*编辑，返回*/
 #title #title_right .edit,#title #title_right .back{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
 	padding-left: 20px;
 	border: 1px solid black;
 	cursor: pointer;
@@ -109,16 +112,12 @@ header #logo{
 
 /*编辑*/
 #title #title_right .edit{
-	float: left;
 	width: 50px;
-	height: 20px;
 	margin-right: 20px;
 }
 
 #title #title_right .back{
-	float: right;
 	width: 50px;
-	height: 20px;
 }
 
 /*书架*/

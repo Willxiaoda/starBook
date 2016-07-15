@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>管理员页面</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<style>
 		#header,img,
 		#content,#button,#add,table,#send,ul,li,#booklist,a,body{
@@ -168,7 +169,7 @@
 </head>
 <body>
 	<header>
-		<a href="www.xingkong.us"><div id="logo"></div></a>
+		<a href="www.xingkong.us"><img src="images/logo.png" id="logo" /></a>
 	</header>
 	<container>
 		<div id="content">
@@ -240,10 +241,10 @@
 			var a = document.createElement("a");
 			var input = document.createElement("input");
 			//内容并在li中添加a标签
-			bookNameLi.innerHTML = "<a href=''> "+ data[i].listname + "</a> ";
+			bookNameLi.innerHTML = "<a href='J_customers.html'> "+ data[i].listname + "</a> ";
 			bookLink.innerHTML = "<a href=''>链接:"+ data[i].listhref + "</a>";
 			Delete.innerHTML = " <span>删除</span> ";
-			Compile.innerHTML = "<a href='D_addBook_edit.html'>编辑</a>";
+			Compile.innerHTML = "<a href='D_bookList_edit.html'>编辑</a>";
 			inputCheck.innerHTML = "";
 			//li所带属性
 			bookNameLi.id = 'book'+(i+1);
@@ -290,12 +291,29 @@
 		for(var i = 0; i < data.length; i++){
 			//发布触发
 			send[i].onclick = function(){
+				// var listId = data[i].id;
 				mask.style.display = 'inline';
+				// $.ajax({
+				// 	type:"post",
+				// 	url:"shuju.php",
+				// 	data:{
+				// 		listID:listId,
+				// 	},
+				// 	dataType:"json",
+				// 	success:function(data){
+				// 		$('#booListUrl').attr('href',data);
+				// 		$('.bookLink[i]').attr('href',data);
+				// 	},
+				// 	error:function(jqXHR){
+
+				// 	},
+				// });
 			}
 		}
-		//关闭遮罩层
+		//关闭遮罩层||Ajax Jq请求
 		close.onclick = function(){
 			mask.style.display = 'none';
+			
 		}
 	}//window onload 结束。
 </script>

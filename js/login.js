@@ -11,20 +11,19 @@ window.onload=function(){
 	var reg = new RegExp("^[0-9]*$");
 	var body = document.getElementById('body');
 
-	window.onresize = resizeWin;
+	// window.onresize = resizeWin;
 
-	function resizeWin(){
-		body.style.height = window.innerHeight + 'px';
-	}
-	resizeWin();
-	user.onfocus = function(){
-		conten.style.display="inline";
-	};
+	// function resizeWin(){
+	// 	body.style.height = window.innerHeight + 'px';
+	// }
+	// resizeWin();
+	// user.onfocus = function(){
+	// 	conten.style.display="inline";
+	// };
 	user.onblur = function(){
 		name_length=this.value.length;
 		// alert(name_length);
 		// var re=/[^\w\u4e00-\u9fa5]/g;
-		
 		if(this.value==""){
 			conten.innerHTML='<i class="err"></i>不能为空!';
 		}

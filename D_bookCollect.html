@@ -12,11 +12,27 @@
 			padding-left: 0;
 		}
 		#container #title #title_right{
-			margin-right: 100px;
+			margin-right: 60px;
+
 		}
 		#container #title #title_right a{
+			float: left;
+			display: block;
+			margin-left: 20px;
+			height: 30px;
+			line-height: 30px;
+			text-decoration: none;
+			text-align: center;
+			border: 1px solid #000;
 			color: #6756FA;
 		}
+		#container #title #title_right>a:first-child{
+			width: 200px;
+		}
+		#container #title #title_right>a:last-child{
+			width: 60px;
+		}
+
 		#container #total{
 			margin: 80px 100px 100px 0;
 			color: red;
@@ -34,13 +50,14 @@
 </head>
 <body>
 	<header>
-		<a href="www.xingkong.us"><div id="logo"></div></a>
+		<a href="www.xingkong.us"><img src="images/logo.png" id="logo" /></a>
 	</header>
 	<div id="container">
 		<div id="title">
 			<div id="title_left">书单1</div>
 				<div id="title_right">
-					<a href=""><span>点击查看已购买详情</span></a>
+					<a href="">点击查看已购买详情</a>
+					<a href="J_addbook.html">返回</a>
 				</div>
 			</div>
 		 <div id="bookShelf">
